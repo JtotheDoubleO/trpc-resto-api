@@ -1,9 +1,9 @@
-import { DeepMutable, mockBatches, mockUsers } from 'utils';
+import { DeepMutable, mockBatches, mockRestos } from 'utils';
 
 import { Batches } from './Batch';
-import { Users } from './User';
+import { Restos } from './Resto';
 
 export const db = {
-  users: structuredClone(mockUsers) as unknown as DeepMutable<Users>,
+  restos: structuredClone(mockRestos) as unknown as DeepMutable<Restos>,
   batches: structuredClone(mockBatches) as unknown as DeepMutable<Batches>,
 };

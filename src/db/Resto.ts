@@ -1,11 +1,13 @@
-// src/db/Resto.ts
 import { z } from 'zod';
-var USER_ROLES = ['administrator', 'apprentice', 'standard'];
-var FeaturedSchema = z.object({
+
+export const USER_ROLES = ['administrator', 'apprentice', 'standard'] as const;
+
+const FeaturedSchema = z.object({
   text: z.string().trim().min(1),
   icon: z.string().trim().min(1),
 });
-var RestoConfigSchema = z.object({
+
+export const RestoConfigSchema = z.object({
   id: z.string().trim().min(1),
   isFavorite: z.boolean(),
   images: z.string().array().default([]),
@@ -19,9 +21,6 @@ var RestoConfigSchema = z.object({
   desc: z.string().trim().min(1),
 });
 
-// trpc-api-export/builder/index.ts
-var SharedSquareObject = {
-  shape: 'square',
-  size: 50,
-};
-export { SharedSquareObject, USER_ROLES };
+export type Resto = z.infer<typeof RestoConfigSchema>;
+
+export type Restos = ReadonlyArray<Resto>;

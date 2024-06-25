@@ -1,12 +1,12 @@
 import { router } from '..';
 
 import { batchRouter } from './batchRouter';
-import { userRouter } from './userRouter';
+import { restoRouter } from './restoRouter';
 import { utilRouter } from './utilRouter';
 
 export const appRouter = router({
   batch: batchRouter,
-  user: userRouter,
+  resto: restoRouter,
   util: utilRouter,
 });
 

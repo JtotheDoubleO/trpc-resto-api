@@ -72,11 +72,19 @@ declare const appRouter: _trpc_server.CreateRouterInner<
             weight: number;
             producers: {
               id: string;
-              email: string;
+              isFavorite: boolean;
+              images: string[];
+              featured: {
+                text: string;
+                icon: string;
+              };
               name: string;
-              username: string;
-              role: 'administrator' | 'apprentice' | 'standard';
-              imageUrl?: string | undefined;
+              rating: number;
+              ratingCount: number;
+              city: string;
+              category: string;
+              priceRange: string;
+              desc: string;
             }[];
             supplier: {
               id: string;
@@ -87,7 +95,7 @@ declare const appRouter: _trpc_server.CreateRouterInner<
         >;
       }
     >;
-    user: _trpc_server.CreateRouterInner<
+    resto: _trpc_server.CreateRouterInner<
       _trpc_server.RootConfig<{
         ctx: {
           req: express.Request<express_serve_static_core.ParamsDictionary, any, any, qs.ParsedQs, Record<string, any>>;
@@ -134,11 +142,19 @@ declare const appRouter: _trpc_server.CreateRouterInner<
           },
           DeepMutable<{
             id: string;
-            email: string;
+            isFavorite: boolean;
+            images: string[];
+            featured: {
+              text: string;
+              icon: string;
+            };
             name: string;
-            username: string;
-            role: 'administrator' | 'apprentice' | 'standard';
-            imageUrl?: string | undefined;
+            rating: number;
+            ratingCount: number;
+            city: string;
+            category: string;
+            priceRange: string;
+            desc: string;
           }>[]
         >;
         show: _trpc_server.BuildProcedure<
@@ -177,13 +193,21 @@ declare const appRouter: _trpc_server.CreateRouterInner<
           },
           | DeepMutable<{
               id: string;
-              email: string;
+              isFavorite: boolean;
+              images: string[];
+              featured: {
+                text: string;
+                icon: string;
+              };
               name: string;
-              username: string;
-              role: 'administrator' | 'apprentice' | 'standard';
-              imageUrl?: string | undefined;
+              rating: number;
+              ratingCount: number;
+              city: string;
+              category: string;
+              priceRange: string;
+              desc: string;
             }>
-          | `User with id:${string} does not exist in database.`
+          | `Restaurant with id:${string} does not exist in database.`
         >;
         destroy: _trpc_server.BuildProcedure<
           'mutation',
@@ -225,11 +249,19 @@ declare const appRouter: _trpc_server.CreateRouterInner<
           },
           DeepMutable<{
             id: string;
-            email: string;
+            isFavorite: boolean;
+            images: string[];
+            featured: {
+              text: string;
+              icon: string;
+            };
             name: string;
-            username: string;
-            role: 'administrator' | 'apprentice' | 'standard';
-            imageUrl?: string | undefined;
+            rating: number;
+            ratingCount: number;
+            city: string;
+            category: string;
+            priceRange: string;
+            desc: string;
           }>[]
         >;
         create: _trpc_server.BuildProcedure<
@@ -262,21 +294,37 @@ declare const appRouter: _trpc_server.CreateRouterInner<
               res: express.Response<any, Record<string, any>>;
             };
             _input_in: {
-              user: {
-                email: string;
+              body: {
+                isFavorite: boolean;
+                featured: {
+                  text: string;
+                  icon: string;
+                };
                 name: string;
-                username: string;
-                role: 'administrator' | 'apprentice' | 'standard';
-                imageUrl?: string | undefined;
+                rating: number;
+                ratingCount: number;
+                city: string;
+                category: string;
+                priceRange: string;
+                desc: string;
+                images?: string[] | undefined;
               };
             };
             _input_out: {
-              user: {
-                email: string;
+              body: {
+                isFavorite: boolean;
+                images: string[];
+                featured: {
+                  text: string;
+                  icon: string;
+                };
                 name: string;
-                username: string;
-                role: 'administrator' | 'apprentice' | 'standard';
-                imageUrl?: string | undefined;
+                rating: number;
+                ratingCount: number;
+                city: string;
+                category: string;
+                priceRange: string;
+                desc: string;
               };
             };
             _output_in: typeof _trpc_server.unsetMarker;
@@ -284,11 +332,19 @@ declare const appRouter: _trpc_server.CreateRouterInner<
           },
           {
             id: string;
-            email: string;
+            isFavorite: boolean;
+            images: string[];
+            featured: {
+              text: string;
+              icon: string;
+            };
             name: string;
-            username: string;
-            role: 'administrator' | 'apprentice' | 'standard';
-            imageUrl?: string | undefined;
+            rating: number;
+            ratingCount: number;
+            city: string;
+            category: string;
+            priceRange: string;
+            desc: string;
           }
         >;
       }

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { UserConfigSchema } from './User';
+import { RestoConfigSchema } from './Resto';
 
 export const BatchConfigSchema = z.object({
   id: z.string(),
@@ -8,7 +8,7 @@ export const BatchConfigSchema = z.object({
   description: z.string().nullable(),
   purity: z.number().min(0).max(100),
   weight: z.number().positive({ message: 'Must be a positive number.' }),
-  producers: UserConfigSchema.array(),
+  producers: RestoConfigSchema.array(),
   supplier: z.object({ id: z.string(), name: z.string(), description: z.string().nullable() }).nullable(),
 });
 

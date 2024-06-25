@@ -1,6 +1,6 @@
 import { Batches } from 'db';
 
-import { mockUsers } from './mockUsers';
+import { mockRestos } from './mockRestos';
 
 export const mockBatches = [
   {
@@ -9,7 +9,7 @@ export const mockBatches = [
     description: 'summer batch',
     purity: 99.11,
     weight: 145.64,
-    producers: [mockUsers[0], mockUsers[1]],
+    producers: [mockRestos[0], mockRestos[1]],
     supplier: {
       id: '3f008731-4645-43de-8af9-3060d4086001',
       name: 'Golden Moth Chemical',
@@ -22,7 +22,7 @@ export const mockBatches = [
     description: 'bad batch',
     purity: 45.72,
     weight: 142.18,
-    producers: [mockUsers[0], mockUsers[1]],
+    producers: [mockRestos[0], mockRestos[1]],
     supplier: {
       id: '3f008731-4645-43de-8af9-3060d4086002',
       name: 'Warehouse',
@@ -36,7 +36,7 @@ export const mockBatches = [
     description: null,
     purity: 99.4,
     weight: 149.7,
-    producers: [mockUsers[0]],
+    producers: [mockRestos[0]],
     supplier: null,
   },
   {
@@ -45,7 +45,7 @@ export const mockBatches = [
     description: null,
     purity: 98.64,
     weight: 146.51,
-    producers: [mockUsers[1]],
+    producers: [mockRestos[1]],
     supplier: null,
   },
 ] satisfies Batches;
