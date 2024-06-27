@@ -12,13 +12,7 @@ async function main() {
   await prisma.resto.deleteMany({});
 
   await prisma.resto.createMany({
-    // @ts-expect-error //re-generate db not firing
-    data: mockRestos.map((resto) => {
-      return {
-        ...resto,
-        featured: resto.featured.text,
-      };
-    }),
+    data: mockRestos,
   });
 
   console.log('Successfully init data');

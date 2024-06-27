@@ -24,7 +24,7 @@ model Resto {
     name         String
     images       String[]
     /// [Featured]
-    featured     String?       @db.Text
+    featured     Json?
     rating       Float?        @default(0)
     ratingCount  BigInt?       @default(0)
     city         String

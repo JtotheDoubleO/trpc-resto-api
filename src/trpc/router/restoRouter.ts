@@ -1,6 +1,7 @@
+import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 
-import { db, Resto, RestoConfigSchema } from 'db';
+import { db, prisma, Resto, RestoConfigSchema } from 'db';
 import { sleep } from 'utils';
 
 import { publicProcedure, router } from '../';
@@ -9,7 +10,16 @@ export const restoRouter = router({
   list: publicProcedure.query(async () => {
     await sleep(1000);
 
-    return db.restos;
+    const restos = await prisma.resto.findMany();
+    return restos.map((resto) => {
+      if (typeof resto.featured === 'object') {
+        return {
+          ...resto,
+          featured: resto.featured as Prisma.JsonObject,
+        };
+      }
+      return resto;
+    });
   }),
 
   show: publicProcedure.input(z.string().min(1)).query(async ({ input: restoIdId }) => {
