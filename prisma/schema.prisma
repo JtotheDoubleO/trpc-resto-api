@@ -25,8 +25,8 @@ model Resto {
     images       String[]
     /// [Featured]
     featured     Json?
-    rating       Float?        @default(0)
-    ratingCount  BigInt?       @default(0)
+    rating       Float        @default(0)
+    ratingCount  BigInt       @default(0)
     city         String
     category     String
     priceRange   String

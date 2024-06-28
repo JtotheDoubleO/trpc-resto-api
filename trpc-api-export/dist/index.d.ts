@@ -109,20 +109,14 @@ declare const appRouter: _trpc_server.CreateRouterInner<
               >;
               res: express.Response<any, Record<string, any>>;
             };
-            _input_in:
-              | {
-                  category?: string | null | undefined;
-                  q?: string | null | undefined;
-                }
-              | null
-              | undefined;
-            _input_out:
-              | {
-                  category?: string | null | undefined;
-                  q?: string | null | undefined;
-                }
-              | null
-              | undefined;
+            _input_in: {
+              category?: string | null | undefined;
+              q?: string | null | undefined;
+            };
+            _input_out: {
+              category?: string | null | undefined;
+              q?: string | null | undefined;
+            };
             _output_in: typeof _trpc_server.unsetMarker;
             _output_out: typeof _trpc_server.unsetMarker;
           },
