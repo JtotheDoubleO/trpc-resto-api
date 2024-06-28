@@ -106,6 +106,96 @@ declare const appRouter: _trpc_server.CreateRouterInner<
               }
           )[]
         >;
+        update: _trpc_server.BuildProcedure<
+          'mutation',
+          {
+            _config: _trpc_server.RootConfig<{
+              ctx: {
+                req: express.Request<
+                  express_serve_static_core.ParamsDictionary,
+                  any,
+                  any,
+                  qs.ParsedQs,
+                  Record<string, any>
+                >;
+                res: express.Response<any, Record<string, any>>;
+              };
+              meta: object;
+              errorShape: _trpc_server.DefaultErrorShape;
+              transformer: typeof superjson.default;
+            }>;
+            _meta: object;
+            _ctx_out: {
+              req: express.Request<
+                express_serve_static_core.ParamsDictionary,
+                any,
+                any,
+                qs.ParsedQs,
+                Record<string, any>
+              >;
+              res: express.Response<any, Record<string, any>>;
+            };
+            _input_in: {
+              id: string;
+              patch: {
+                id?: string | undefined;
+                isFavorite?: boolean | undefined;
+                images?: string[] | undefined;
+                featured?:
+                  | {
+                      text: string;
+                      icon: string;
+                    }
+                  | undefined;
+                name?: string | undefined;
+                rating?: number | undefined;
+                ratingCount?: number | undefined;
+                city?: string | undefined;
+                category?: string | undefined;
+                priceRange?: string | undefined;
+                desc?: string | undefined;
+              };
+            };
+            _input_out: {
+              id: string;
+              patch: {
+                id?: string | undefined;
+                isFavorite?: boolean | undefined;
+                images?: string[] | undefined;
+                featured?:
+                  | {
+                      text: string;
+                      icon: string;
+                    }
+                  | undefined;
+                name?: string | undefined;
+                rating?: number | undefined;
+                ratingCount?: number | undefined;
+                city?: string | undefined;
+                category?: string | undefined;
+                priceRange?: string | undefined;
+                desc?: string | undefined;
+              };
+            };
+            _output_in: typeof _trpc_server.unsetMarker;
+            _output_out: typeof _trpc_server.unsetMarker;
+          },
+          {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            name: string;
+            images: string[];
+            featured: PrismaJson.Featured | null;
+            rating: number;
+            ratingCount: bigint;
+            city: string;
+            category: string;
+            priceRange: string;
+            desc: string;
+            isFavorite: boolean;
+          }
+        >;
       }
     >;
     util: _trpc_server.CreateRouterInner<
