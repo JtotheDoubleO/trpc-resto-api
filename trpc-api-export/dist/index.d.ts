@@ -134,8 +134,8 @@ declare const appRouter: _trpc_server.CreateRouterInner<
                 name: string;
                 images: string[];
                 featured: PrismaJson.Featured | null;
-                rating: number | null;
-                ratingCount: bigint | null;
+                rating: number;
+                ratingCount: bigint;
                 city: string;
                 category: string;
                 priceRange: string;
@@ -149,8 +149,8 @@ declare const appRouter: _trpc_server.CreateRouterInner<
                 updatedAt: Date;
                 name: string;
                 images: string[];
-                rating: number | null;
-                ratingCount: bigint | null;
+                rating: number;
+                ratingCount: bigint;
                 city: string;
                 category: string;
                 priceRange: string;
