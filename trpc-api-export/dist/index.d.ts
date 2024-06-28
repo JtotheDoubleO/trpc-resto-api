@@ -1,3 +1,4 @@
+import * as _prisma_client from '.prisma/client';
 import * as superjson from 'superjson';
 import * as _trpc_server from '@trpc/server';
 import * as express from 'express';
@@ -140,22 +141,38 @@ declare const appRouter: _trpc_server.CreateRouterInner<
             _output_out: typeof _trpc_server.unsetMarker;
             _meta: object;
           },
-          DeepMutable<{
-            id: string;
-            isFavorite: boolean;
-            images: string[];
-            featured: {
-              text: string;
-              icon: string;
-            };
-            name: string;
-            rating: number;
-            ratingCount: number;
-            city: string;
-            category: string;
-            priceRange: string;
-            desc: string;
-          }>[]
+          (
+            | {
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                name: string;
+                images: string[];
+                featured: PrismaJson.Featured | null;
+                rating: number | null;
+                ratingCount: bigint | null;
+                city: string;
+                category: string;
+                priceRange: string;
+                desc: string;
+                isFavorite: boolean;
+              }
+            | {
+                featured: _prisma_client.Prisma.JsonObject;
+                id: string;
+                createdAt: Date;
+                updatedAt: Date;
+                name: string;
+                images: string[];
+                rating: number | null;
+                ratingCount: bigint | null;
+                city: string;
+                category: string;
+                priceRange: string;
+                desc: string;
+                isFavorite: boolean;
+              }
+          )[]
         >;
         show: _trpc_server.BuildProcedure<
           'query',

@@ -1,4 +1,3 @@
-export * from './mocks/mockBatches';
 export * from './mocks/mockRestos';
 export * from './sleep';
 export * from './types';
