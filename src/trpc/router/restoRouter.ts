@@ -1,7 +1,7 @@
 import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 
-import { prisma } from 'db';
+import { prisma, RestoConfigSchema } from 'db';
 import { sleep } from 'utils';
 
 import { publicProcedure, router } from '../';
@@ -33,6 +33,17 @@ export const restoRouter = router({
       });
     }),
 
+  update: publicProcedure
+    .input(z.object({ id: z.string().min(1), patch: RestoConfigSchema.partial() }))
+    .mutation(async ({ input: { id, patch } }) => {
+      await sleep(1000);
+
+      return prisma.resto.update({
+        where: { id },
+        data: patch,
+      });
+    }),
+
   // show: publicProcedure.input(z.string().min(1)).query(async ({ input: restoId }) => {
   //   await sleep(1000);
   //
@@ -43,13 +54,6 @@ export const restoRouter = router({
   //   }
   //
   //   return `Restaurant with id:${restoId} does not exist in database.` as const;
-  // }),
-  //
-  // destroy: publicProcedure.input(z.object({ id: z.string().min(1) })).mutation(async ({ input: { id } }) => {
-  //   await sleep(1000);
-  //
-  //   const index = db.restos.findIndex((resto) => resto.id === id);
-  //   return db.restos.splice(index, 1);
   // }),
   //
   // create: publicProcedure
