@@ -65,34 +65,7 @@ declare const appRouter: _trpc_server.CreateRouterInner<
             _output_out: typeof _trpc_server.unsetMarker;
             _meta: object;
           },
-          DeepMutable<{
-            id: string;
-            title: string;
-            description: string | null;
-            purity: number;
-            weight: number;
-            producers: {
-              id: string;
-              isFavorite: boolean;
-              images: string[];
-              featured: {
-                text: string;
-                icon: string;
-              };
-              name: string;
-              rating: number;
-              ratingCount: number;
-              city: string;
-              category: string;
-              priceRange: string;
-              desc: string;
-            }[];
-            supplier: {
-              id: string;
-              name: string;
-              description: string | null;
-            } | null;
-          }>[]
+          never[]
         >;
       }
     >;
@@ -125,6 +98,7 @@ declare const appRouter: _trpc_server.CreateRouterInner<
               errorShape: _trpc_server.DefaultErrorShape;
               transformer: typeof superjson.default;
             }>;
+            _meta: object;
             _ctx_out: {
               req: express.Request<
                 express_serve_static_core.ParamsDictionary,
@@ -135,11 +109,22 @@ declare const appRouter: _trpc_server.CreateRouterInner<
               >;
               res: express.Response<any, Record<string, any>>;
             };
-            _input_in: typeof _trpc_server.unsetMarker;
-            _input_out: typeof _trpc_server.unsetMarker;
+            _input_in:
+              | {
+                  category?: string | null | undefined;
+                  q?: string | null | undefined;
+                }
+              | null
+              | undefined;
+            _input_out:
+              | {
+                  category?: string | null | undefined;
+                  q?: string | null | undefined;
+                }
+              | null
+              | undefined;
             _output_in: typeof _trpc_server.unsetMarker;
             _output_out: typeof _trpc_server.unsetMarker;
-            _meta: object;
           },
           (
             | {

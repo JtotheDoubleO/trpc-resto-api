@@ -8,15 +8,15 @@ import { publicProcedure, router } from '../';
 
 export const restoRouter = router({
   list: publicProcedure
-    .input(z.object({ q: z.string().nullish(), category: z.string().nullish() }).nullish())
+    .input(z.object({ q: z.string().nullish(), category: z.string().nullish() }))
     .query(async ({ input }) => {
       await sleep(1000);
 
       const restos = await prisma.resto.findMany({
         where: {
           OR: [
-            { name: { contains: input?.q ? input.q : undefined } },
-            { category: input?.category ? input.category : undefined },
+            { name: { contains: input.q ? input.q : undefined } },
+            { category: input.category ? input.category : undefined },
           ],
         },
       });
