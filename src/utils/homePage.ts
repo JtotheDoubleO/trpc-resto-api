@@ -15,9 +15,21 @@ export const homePage = `
     Router:
       <ul>
         Resto
-        <li><a title="Query - /trpc/getRestaurants" href="/getRestaurants">Get Restaurants</a></li>
-        <li><a title="Mutation - /trpc/addFavorite" href="/trpc/addFavorite">Add Favorite</a></li>
+        <li><a title="Query - /trpc/getRestaurants" href="/trpc/getRestaurants">Get Restaurants</a></li>
+        <li>
+          <form method="post" action="/trpc/addFavorite">
+            <button type="submit" title="Mutation - /trpc/addFavorite">Add Favorite</button>
+          </form>
+        </li>
       </ul>
+<!--      <ul>-->
+<!--        Util-->
+<!--        <li>-->
+<!--          <form method="post" action="/trpc/util.seedDb">-->
+<!--            <button type="submit" title="Mutation - /trpc/util.seedDb">Seed DB</button>-->
+<!--          </form>-->
+<!--        </li>-->
+<!--      </ul>-->
     </div>
   </body>
 </html>
