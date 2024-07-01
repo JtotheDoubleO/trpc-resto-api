@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { publicProcedure, router } from '..';
 import { prisma, RestoConfigSchema } from '../../db';
-import { sleep } from '../../utils';
+import { mockRestos, sleep } from '../../utils';
 
 // import { restoRouter } from './restoRouter';
 // import { utilRouter } from './utilRouter';
@@ -43,6 +43,20 @@ export const appRouter = router({
         data: patch,
       });
     }),
+
+  seedDb: publicProcedure.mutation(async () => {
+    await sleep(1000);
+
+    await prisma.resto.deleteMany({});
+
+    await prisma.resto.createMany({
+      data: mockRestos,
+    });
+
+    // console.log('Successfully init data');
+
+    return 'Successfully init data';
+  }),
 });
 
 export type AppRouter = typeof appRouter;

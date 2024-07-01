@@ -22,14 +22,14 @@ export const homePage = `
           </form>
         </li>
       </ul>
-<!--      <ul>-->
-<!--        Util-->
-<!--        <li>-->
-<!--          <form method="post" action="/trpc/util.seedDb">-->
-<!--            <button type="submit" title="Mutation - /trpc/util.seedDb">Seed DB</button>-->
-<!--          </form>-->
-<!--        </li>-->
-<!--      </ul>-->
+      <ul>
+        Util
+        <li>
+          <form method="post" action="/trpc/seedDb">
+            <button type="submit" title="Mutation - /trpc/seedDb">Seed DB</button>
+          </form>
+        </li>
+      </ul>
     </div>
   </body>
 </html>
