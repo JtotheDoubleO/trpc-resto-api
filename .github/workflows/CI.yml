@@ -44,6 +44,8 @@ jobs:
         run: npx prisma migrate deploy
 
       - name: Seed mock data
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:seed
 
   lint:

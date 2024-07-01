@@ -173,6 +173,36 @@ declare const appRouter: _trpc_server.CreateRouterInner<
         isFavorite: boolean;
       }
     >;
+    seedDb: _trpc_server.BuildProcedure<
+      'mutation',
+      {
+        _config: _trpc_server.RootConfig<{
+          ctx: {
+            req: express.Request<
+              express_serve_static_core.ParamsDictionary,
+              any,
+              any,
+              qs.ParsedQs,
+              Record<string, any>
+            >;
+            res: express.Response<any, Record<string, any>>;
+          };
+          meta: object;
+          errorShape: _trpc_server.DefaultErrorShape;
+          transformer: typeof superjson.default;
+        }>;
+        _ctx_out: {
+          req: express.Request<express_serve_static_core.ParamsDictionary, any, any, qs.ParsedQs, Record<string, any>>;
+          res: express.Response<any, Record<string, any>>;
+        };
+        _input_in: typeof _trpc_server.unsetMarker;
+        _input_out: typeof _trpc_server.unsetMarker;
+        _output_in: typeof _trpc_server.unsetMarker;
+        _output_out: typeof _trpc_server.unsetMarker;
+        _meta: object;
+      },
+      string
+    >;
   }
 >;
 type AppRouter = typeof appRouter;
